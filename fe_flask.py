@@ -52,15 +52,15 @@ def leaveapplied(username):
 
 @app.route('/employee/<username>',methods = ["POST","GET"])
 def loademployee(username):
-   if(request.method=="GET"):
-      return render_template('print_error.html',inputtext="You Hacker? try better ;)")
+   # if(request.method=="GET"):
+   #    return render_template('print_error.html',inputtext="You Hacker? try better ;)")
    log = db.viewLog(username, db.c)
    return render_template('employee_home.html',username=username,log=log)
 
 @app.route('/manager/<username>',methods = ["POST","GET"])
 def loadmanager(username):
-   if(request.method=="GET"):
-      return render_template('print_error.html',inputtext="You Hacker? try better ;)")
+   # if(request.method=="GET"):
+   #    return render_template('print_error.html',inputtext="You Hacker? try better ;)")
    lvpend = db.viewPending(username,db.c)
    return render_template('manager_home.html',username=username,lvpend=lvpend)
 
