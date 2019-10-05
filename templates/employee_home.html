@@ -7,7 +7,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
    <title>Leave Management System</title>
-   <meta name = "username" content = {{username}}>
+   <meta name="username" content={{username}}>
 </head>
 
 <body>
@@ -68,8 +68,10 @@
       {% endfor %}
    </table>
    {% endif %}
-   <h1>Leave Application Form</h1> 
-   <form method="POST" action = "/leaveapplied/{{username}}" onsubmit="return(validateMyForm());" class="was-validated">
+   <center>
+      <h1>Leave Application Form</h1>
+   </center>
+   <form method="POST" action="/leaveapplied/{{username}}" onsubmit="return(validateMyForm());" class="was-validated">
       <div class="form-group">
          <label for="uname">Start Date:</label>
          <input type="date" class="form-control" id="stdate" placeholder="Enter Start Date" name="stdate" required>
@@ -90,7 +92,8 @@
       </div>
       <div class="form-group">
          <label for="pwd">Reason</label>
-         <input type="text" class="form-control" id="reason" placeholder="Enter reason for leave" name="reason" required>
+         <input type="text" class="form-control" id="reason" placeholder="Enter reason for leave" name="reason"
+            required>
          <div class="valid-feedback">Valid.</div>
          <div class="invalid-feedback">Please fill out this field.</div>
       </div>
@@ -101,7 +104,7 @@
                return false;
             }
 
-            alert("Validations Passed");
+            alert("Leave has been applied Successfully!");
             return true;
          }
          function DateCheck() {
@@ -111,10 +114,9 @@
             var eDate = new Date(EndDate);
             var sDate = new Date(StartDate);
             today = new Date();
-            var cDate = new Date(today.getFullYear(),today.getMonth(),today.getDay()-1);
+            var cDate = new Date(today.getFullYear(), today.getMonth(), today.getDay() - 1);
             console.log(cDate);
-            if(sDate < cDate)
-            {
+            if (sDate < cDate) {
                alert("You have entered an old date.");
                return false;
             }
@@ -124,19 +126,19 @@
             }
             return true;
          }
-         function TypeCheck()
-         {
+         function TypeCheck() {
             var Ltype = document.getElementById('lvtype').value;
             Ltype = Ltype.toLowerCase();
-            if(Ltype=='pl' || Ltype=='sl' || Ltype=='cl')
-            {
+            if (Ltype == 'pl' || Ltype == 'sl' || Ltype == 'cl') {
                return true;
             }
             alert("Please type the correct type");
             return false;
          }
       </script>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <center>
+         <button type="submit" class="btn btn-primary">Submit</button>
+      </center>
    </form>
 </body>
 
